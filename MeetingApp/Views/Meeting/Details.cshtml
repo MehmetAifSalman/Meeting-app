@@ -1,0 +1,19 @@
+@model UserInfo
+@{
+    ViewBag.Title = "Başvuru Detayı";
+}
+@{
+    var className = @Model.willatend == true ? "primary" : "danger";
+    var oke = @Model.willatend == true ? "Katılıyor" : "Katılmıyor"; 
+}
+
+<main class="text-center">
+    <h1 class="h4">Başvuru Detayı</h1>
+    <p>
+        <span class="badge text-bg-@className">@oke</span>
+    </p>
+    <p>İsim : @Model.Name</p>
+    <p>E-mail : @Model.Email</p>
+    <p>Telefon : @Model.Phone</p>
+    <a asp-controller = "Meeting" asp-action = "List" class="btn btn-outline-@className">Katılımcı Listesi</a>
+</main>
